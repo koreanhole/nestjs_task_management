@@ -10,6 +10,7 @@ import {
   Query,
   UsePipes,
   ValidationPipe,
+  Logger,
 } from '@nestjs/common';
 import { TasksService } from './tasks.service';
 import { CreateTaskDto } from './dto/create-task.dto';
@@ -20,6 +21,7 @@ import { TaskStatus } from './task-status.enum';
 
 @Controller('tasks')
 export class TasksController {
+  private logger = new Logger('TaskController');
   constructor(private tasksService: TasksService) {}
 
   @Get()
